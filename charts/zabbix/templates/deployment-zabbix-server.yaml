@@ -96,9 +96,9 @@ spec:
           securityContext:
             {{- toYaml .Values.zabbixServer.securityContext | nindent 12 }}
           {{- if .Values.zabbixServer.image.tag }}
-          image: "{{ .Values.zabbixServer.image.repository }}:{{ .Values.zabbixServer.image.tag }}"
+          image: "{{ .Values.zabbixServer.image.repository }}{{ .Values.zabbixDBType }}:{{ .Values.zabbixServer.image.tag }}"
           {{- else }}
-          image: "{{ .Values.zabbixServer.image.repository }}:{{ .Values.zabbixImageTag }}"
+          image: "{{ .Values.zabbixServer.image.repository }}{{ .Values.zabbixDBType }}:{{ .Values.zabbixImageTag }}"
           {{- end }}
           imagePullPolicy: {{ .Values.zabbixServer.image.pullPolicy }}
           ports:
