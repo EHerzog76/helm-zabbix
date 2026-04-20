@@ -70,9 +70,9 @@ spec:
         securityContext:
           {{- toYaml .Values.zabbixWeb.securityContext | nindent 10 }}
         {{- if .Values.zabbixWeb.image.tag }}
-        image: "{{ .Values.zabbixWeb.image.repository }}:{{ .Values.zabbixWeb.image.tag }}"
+        image: "{{ .Values.zabbixWeb.image.repository }}{{ .Values.zabbixDBType }}:{{ .Values.zabbixWeb.image.tag }}"
         {{- else }}
-        image: "{{ .Values.zabbixWeb.image.repository }}:{{ .Values.zabbixImageTag }}"
+        image: "{{ .Values.zabbixWeb.image.repository }}{{ .Values.zabbixDBType }}:{{ .Values.zabbixImageTag }}"
         {{- end }}
         imagePullPolicy: {{ .Values.zabbixWeb.image.pullPolicy }}
         env:
