@@ -109,9 +109,16 @@ Return the entire logic of setting PostgreSQL access related env vars for the co
 {{- with index . 1 }}
 {{- $hostvar := "DB_SERVER_HOST" }}
 {{- $portvar := "DB_SERVER_PORT" }}
+{{- if eq .Values.zabbixDBType "mysql" }}
+{{- $uservar := "MYSQL_USER" }}
+{{- $passwordvar := "MYSQL_PASSWORD" }}
+{{- $dbvar := "MYSQL_DATABASE" }}
+{{- else }}
 {{- $uservar := "POSTGRES_USER" }}
 {{- $passwordvar := "POSTGRES_PASSWORD" }}
 {{- $dbvar := "POSTGRES_DB" }}
+{{- end }}
+
 {{- $schemavar := "DB_SERVER_SCHEMA" }}
 {{/* special settings for the DB client (autoclean cron job) container, needs different env variable names */}}
 {{- if eq $cntxt "db_client" }}
