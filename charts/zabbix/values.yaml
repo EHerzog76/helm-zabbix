@@ -22,6 +22,11 @@ global:
 # here or overwrite in each component (example: zabbixserver.image.tag, etc).
 zabbixImageTag: ubuntu-7.0.16
 
+# -- Zabbix components (server and web frontend) DB-type for repository to use.
+# Supported types are:
+#      pgsql, mysql
+zabbixDBType: pgsql
+
 # **Zabbix Postgresql access / credentials** configurations
 # with this dict, you can set unified PostgreSQL access credentials, IP and so on for both Zabbix Server and Zabbix web frontend
 # you can either chose from having all this in one named (preexisting) secret or setting the values one by one with vars
@@ -154,7 +159,7 @@ zabbixServer:
   resources: {}
   image:
     # -- Zabbix Server Docker image name
-    repository: zabbix/zabbix-server-pgsql
+    repository: zabbix/zabbix-server-
     # -- Zabbix Server Docker image tag, if you want to override zabbixImageTag
     tag: null
     # -- Pull policy of Docker image
@@ -590,7 +595,7 @@ zabbixWeb:
   resources: {}
   image:
     # -- Zabbix Web Docker image name
-    repository: zabbix/zabbix-web-nginx-pgsql
+    repository: zabbix/zabbix-web-nginx-
     # -- Zabbix Web Docker image tag, if you want to override zabbixImageTag
     tag: null
     # -- Pull policy of Docker image
