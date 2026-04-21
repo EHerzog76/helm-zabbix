@@ -109,6 +109,9 @@ Return the entire logic of setting PostgreSQL access related env vars for the co
 {{- with index . 1 }}
 {{- $hostvar := "DB_SERVER_HOST" }}
 {{- $portvar := "DB_SERVER_PORT" }}
+{{- $uservar := "DB_USER" }}
+{{- $passwordvar := "DB_PASSWORD" }}
+{{- $dbvar := "DB_DATABASE" }}
 {{- if eq .Values.zabbixDBType "mysql" }}
 {{- $uservar := "MYSQL_USER" }}
 {{- $passwordvar := "MYSQL_PASSWORD" }}
