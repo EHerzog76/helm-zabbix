@@ -113,13 +113,13 @@ Return the entire logic of setting PostgreSQL access related env vars for the co
 {{- $passwordvar := "DB_PASSWORD" }}
 {{- $dbvar := "DB_DATABASE" }}
 {{- if eq .Values.zabbixDBType "mysql" }}
-{{- $uservar := "MYSQL_USER" }}
-{{- $passwordvar := "MYSQL_PASSWORD" }}
-{{- $dbvar := "MYSQL_DATABASE" }}
+{{- $uservar = "MYSQL_USER" }}
+{{- $passwordvar = "MYSQL_PASSWORD" }}
+{{- $dbvar = "MYSQL_DATABASE" }}
 {{- else }}
-{{- $uservar := "POSTGRES_USER" }}
-{{- $passwordvar := "POSTGRES_PASSWORD" }}
-{{- $dbvar := "POSTGRES_DB" }}
+{{- $uservar = "POSTGRES_USER" }}
+{{- $passwordvar = "POSTGRES_PASSWORD" }}
+{{- $dbvar = "POSTGRES_DB" }}
 {{- end }}
 
 {{- $schemavar := "DB_SERVER_SCHEMA" }}
